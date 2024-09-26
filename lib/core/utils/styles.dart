@@ -8,6 +8,12 @@ abstract class Styles {
       height: 0,
       fontWeight: FontWeight.w500,
       color: Colors.black);
+  static const TextStyle textStyle22 =  TextStyle(
+      fontFamily: kFontFamily,
+      fontSize: 22,
+      height: 0,
+      fontWeight: FontWeight.w500,
+      color: Colors.black);
   static const TextStyle textStyle24 =  TextStyle(
       fontFamily: kFontFamily,
       fontSize: 24,
