@@ -1,5 +1,6 @@
-
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:stripe_integration/core/utils/app_routes.dart';
 import 'package:stripe_integration/core/widgets/custom_button.dart';
 import 'package:stripe_integration/features/checkout/presentation/views/widgets/order_info_item.dart';
 import 'package:stripe_integration/features/checkout/presentation/views/widgets/total_price.dart';
@@ -11,44 +12,44 @@ class OrderInfoSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
-        OrderInfoItem(
+        const OrderInfoItem(
           title: 'Order subtotal',
           value: r"30.21$",
         ),
-        SizedBox(
+        const SizedBox(
           height: 3,
         ),
-        OrderInfoItem(
+        const OrderInfoItem(
           title: 'Discount',
           value: r"0$",
         ),
-        SizedBox(
+        const SizedBox(
           height: 3,
         ),
-        OrderInfoItem(
+        const OrderInfoItem(
           title: 'Shipping',
           value: r"8$",
         ),
-        Divider(
+        const Divider(
           height: 34,
           thickness: 2,
           color: Color(0xffC7C7C7),
           indent: 10,
           endIndent: 10,
         ),
-        TotalPrice(title: 'Total Price', value: r'50.12$'),
+        const TotalPrice(title: 'Total Price', value: r'50.12$'),
         // Spacer(),
-        SizedBox(
+        const SizedBox(
           height: 30,
         ),
         CustomButton(
+          onTap: () {
+            GoRouter.of(context).push(AppRouter.kPaymentDetailsPath);
+          },
           title: 'Complete Payment',
         ),
-         SizedBox(
-          height: 12,
-        )
       ],
     );
   }

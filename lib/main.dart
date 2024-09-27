@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stripe_integration/core/utils/app_routes.dart';
 import 'package:stripe_integration/features/checkout/presentation/views/my_cart_view.dart';
 
 void main() {
@@ -10,9 +11,9 @@ class StripePayment extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp.router(
+      routerConfig: AppRouter.router,
       debugShowCheckedModeBanner: false,
-      home: MyCartView(),
     );
   }
 }
