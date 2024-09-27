@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:stripe_integration/core/utils/app_routes.dart';
 import 'package:stripe_integration/core/widgets/custom_button.dart';
 import 'package:stripe_integration/features/checkout/presentation/views/widgets/order_info_item.dart';
+import 'package:stripe_integration/features/checkout/presentation/views/widgets/payment_methodes_bottomsheet.dart';
 import 'package:stripe_integration/features/checkout/presentation/views/widgets/total_price.dart';
 
 class OrderInfoSection extends StatelessWidget {
@@ -46,7 +45,11 @@ class OrderInfoSection extends StatelessWidget {
         ),
         CustomButton(
           onTap: () {
-            GoRouter.of(context).push(AppRouter.kPaymentDetailsPath);
+            showModalBottomSheet(
+                context: context,
+                builder: (context) {
+                  return const PaymentMethodesBottomSheet();
+                });
           },
           title: 'Complete Payment',
         ),

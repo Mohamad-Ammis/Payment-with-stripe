@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
-import 'package:stripe_integration/core/widgets/custom_button.dart';
 
 class CustomCreditCard extends StatefulWidget {
   const CustomCreditCard({super.key, required this.formKey, required this.autovalidateMode});

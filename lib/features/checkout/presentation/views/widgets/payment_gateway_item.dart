@@ -19,19 +19,19 @@ class PaymentGatewayItem extends StatelessWidget {
               borderRadius: BorderRadius.circular(15),
               side: BorderSide(
                 width: 1.5,
-                color: isActive ? Color(0xff34A853) : Colors.grey,
+                color: isActive ? const Color(0xff34A853) : Colors.grey,
               ))),
           shadows: [
             if (isActive)
-              BoxShadow(
+              const BoxShadow(
                   blurRadius: 4,
                   offset: Offset(0, 0),
                   spreadRadius: 0,
                   color: Color(0xff34A853))
           ]),
-      duration: Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 300),
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 12),
+        padding: const EdgeInsets.symmetric(horizontal: 12),
         decoration: BoxDecoration(
             color: Colors.white, borderRadius: BorderRadius.circular(15)),
         child: Center(

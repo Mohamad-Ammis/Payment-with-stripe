@@ -1,6 +1,8 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:stripe_integration/core/utils/app_routes.dart';
 import 'package:stripe_integration/core/widgets/custom_button.dart';
 import 'package:stripe_integration/features/checkout/presentation/views/widgets/custom_credit_card.dart';
 import 'package:stripe_integration/features/checkout/presentation/views/widgets/payment_gateway_listview.dart';
@@ -29,7 +31,7 @@ class _PaymentDetailsViewBodyState extends State<PaymentDetailsViewBody> {
         child: Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: CustomButton(
                 title: 'Pay',
                 onTap: () {
@@ -39,6 +41,7 @@ class _PaymentDetailsViewBodyState extends State<PaymentDetailsViewBody> {
                   } else {
                     autovalidateMode = AutovalidateMode.always;
                     setState(() {});
+                    GoRouter.of(context).push(AppRouter.kPaymentSuccessPath);
                   }
                 },
               ),
