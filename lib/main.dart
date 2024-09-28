@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
+import 'package:stripe_integration/core/utils/api_keys.dart';
 import 'package:stripe_integration/core/utils/app_routes.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  Stripe.publishableKey = ApiKeys.publishableKey;
+  //  Stripe.merchantIdentifier = 'any string works';
+  await Stripe.instance.applySettings();
   runApp(const StripePayment());
 }
 
@@ -17,31 +22,14 @@ class StripePayment extends StatelessWidget {
     );
   }
 }
-//1. CREATE PAYMENT INTENT WITH REQUIRD PARAM {AMOUNT , CUREENCY}
-//2. INTEGRATE PAYMENT SHEET WITH REQUIRED PARAM {merchantDisplayName,paymentIntentClientSecret}
-// Future<void> initPaymentSheet() async {
-//     try {
-//       // 1. create payment intent on the server
-//       final data = await _createTestPaymentSheet();
-
-//       // 2. initialize the payment sheet
-//      await Stripe.instance.initPaymentSheet(
-//         paymentSheetParameters: SetupPaymentSheetParameters(
-//           // Set to true for custom flow
-//           customFlow: false,
-//           // Main params
-//           merchantDisplayName: 'Flutter Stripe Store Demo',
-//           paymentIntentClientSecret: data['paymentIntent'],
-//         ),
-//       );
-//       setState(() {
-//         _ready = true;
-//       });
-//     } catch (e) {
-//       ScaffoldMessenger.of(context).showSnackBar(
-//         SnackBar(content: Text('Error: $e')),
-//       );
-//       rethrow;
-//     }
-// }
+// TO SAVE CARD INFO
+//WHEN CREATE USER APP ACCOUNT WE MUSR CREATE STRIPE ACCOUNT TO SAVE USER INFO
+//SO WE CAN USE IT WHEN WE NEED ANY PAYMENT INFO
+// TO GET USER DATA WE CAN USE EPHEMERAL KEY
+// SO FIRST CREARE EPHMERAL KEY TO GET USER INFO KEY
+//CREATE EPHEMERAL KEY(STRIPE VERSION,CUSTOMER ID)
+//1. CREATE PAYMENT INTENT WITH REQUIRD PARAM {AMOUNT , CUREENCY,}
+//OPTIONAL CUSTOMER ID FOR SAVE USER CARD INFO
+//2. INIT PAYMENT SHEET WITH REQUIRED PARAM {merchantDisplayName,paymentIntentClientSecret}
 //3. PRESENT PAYMENT SHEET
+//4. TO SAVE CUSTOMER CARD WE CAN USE CUSTOMER AND EPHERMAL TOPIC

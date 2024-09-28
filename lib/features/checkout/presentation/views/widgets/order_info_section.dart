@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:stripe_integration/core/widgets/custom_button.dart';
+import 'package:stripe_integration/features/checkout/data/repo/checkout_repo_impl.dart';
+import 'package:stripe_integration/features/checkout/presentation/cubits/cubit/checkout_cubit.dart';
 import 'package:stripe_integration/features/checkout/presentation/views/widgets/order_info_item.dart';
 import 'package:stripe_integration/features/checkout/presentation/views/widgets/payment_methodes_bottomsheet.dart';
 import 'package:stripe_integration/features/checkout/presentation/views/widgets/total_price.dart';
@@ -48,7 +51,10 @@ class OrderInfoSection extends StatelessWidget {
             showModalBottomSheet(
                 context: context,
                 builder: (context) {
-                  return const PaymentMethodesBottomSheet();
+                  return BlocProvider(
+                    create: (context) => CheckoutCubit(CheckoutRepoImpl()),
+                    child: const PaymentMethodesBottomSheet(),
+                  );
                 });
           },
           title: 'Complete Payment',
