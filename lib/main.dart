@@ -44,4 +44,4 @@ class StripePayment extends StatelessWidget {
 //       rethrow;
 //     }
 // }
-//3. PRESENT PAYMENT SHEET 
+//3. PRESENT PAYMENT SHEET

@@ -73,7 +73,8 @@ class PaymentSuccessCard extends StatelessWidget {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
                     border: Border.all(width: 1.5, color: Colors.green)),
-                padding: const EdgeInsets.symmetric(horizontal: 29, vertical: 12),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 29, vertical: 12),
                 child: Text(
                   'Paid',
                   style: Styles.textStyle24.copyWith(color: Colors.green),

@@ -3,7 +3,8 @@ import 'package:stripe_integration/core/utils/styles.dart';
 
 class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppbar({
-    super.key, required this.title,
+    super.key,
+    required this.title,
   });
   final String title;
   @override
@@ -15,7 +16,7 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
           onPressed: () {},
           icon: const Icon(Icons.arrow_back_ios_new_outlined)),
       centerTitle: true,
-      title:  Text(
+      title: Text(
         title,
         style: Styles.textStyle25,
       ),
